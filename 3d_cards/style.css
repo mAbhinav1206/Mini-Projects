@@ -1,0 +1,65 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f6f4fc;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.parentCard {
+    position: relative;
+    display: inline-block;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+
+.parentCard:hover .card {
+    transform: rotateX(30deg);
+    box-shadow: 0px 14px 35px rgba(0, 0, 0, 0.7);
+}
+
+.mainImg {
+    display: block;
+    border-radius: 20px;
+}
+
+
+.hoverCard {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hoverImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transform: rotateX(-30deg);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+.parentCard:hover .hoverImg {
+    opacity: 1;
+    transform: rotateX(30deg);
+    transform: translateY(-30px);
+    filter: drop-shadow(1px 1px 15px rgba(0, 0, 0, 0.7));
+}
